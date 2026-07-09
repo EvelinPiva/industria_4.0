@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Articulado | Catálogo Técnico</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleArticulado.css">
+</head>
+<body>
+
+    <div class="imagem-topo">
+        <img src="./Fluxograma e Código Python Em Destaque.jpg" class="hover-neon" alt="Banner Automação Industrial">
+    </div>
+
+    <header>
+        <h1>Portal de Robótica & Indústria 4.0</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="introducao">
+            <h2>Robô Articulado (Braço Antropomórfico)</h2>
+            <p>
+                O robô articulado é o modelo mais icônico e versátil da automação industrial. Sua configuração mecânica 
+                lembra de perto um braço humano, o que confere a ele uma enorme liberdade de movimentos para tarefas complexas.
+            </p>
+        </section>
+
+        <section class="destaques">
+            <h2>Especificações Técnicas e Conceitos</h2>
+
+            <details>
+                <summary>📝 Conceito</summary>
+                <p>
+                    Um robô articulado possui juntas rotativas (geralmente chamadas de eixos) instaladas em sequência. 
+                    Ele é classificado como um robô antropomórfico devido à sua semelhança estrutural com a cintura, ombro, 
+                    cotovelo e pulso humanos, permitindo que ele alcance pontos de ângulos extremamente difíceis.
+                </p>
+                <img src="articulado_conceito.jpg" alt="Braço robótico articulado com indicação de eixos">
+            </details>
+
+            <details>
+                <summary>⚙️ Princípio de Funcionamento</summary>
+                <p>
+                    O funcionamento baseia-se na rotação combinada de seus eixos (geralmente de 5 a 6 graus de liberdade). 
+                    Cada junta é controlada por um servo-motor acoplado a redutores de alta precisão. O software do controlador 
+                    calcula a cinemática inversa em tempo real para transformar os giros dos motores em movimentos suaves, 
+                    lineares ou curvos da ferramenta na extremidade do braço.
+                </p>
+            </details>
+
+            <details>
+                <summary>📊 Características Técnicas</summary>
+                <p>
+                    As principais especificações deste modelo incluem:
+                </p>
+                <ul>
+                    <li><strong>Múltiplos graus de liberdade:</strong> Geralmente 6 eixos, permitindo qualquer orientação no espaço.</li>
+                    <li><strong>Envelope de trabalho esférico:</strong> Consegue operar acima, abaixo, à frente e atrás de si mesmo.</li>
+                    <li><strong>Grande capacidade de carga e alcance:</strong> Modelos variam de braços pequenos a gigantes que erguem toneladas.</li>
+                    <li><strong>Versatilidade mecânica:</strong> Pode ser montado no chão, na parede ou de cabeça para baixo (invertido).</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🏭 Aplicações Industriais</summary>
+                <p>
+                    Graças à sua flexibilidade, é amplamente utilizado em:
+                </p>
+                <ul>
+                    <li>Soldagem a arco, ponto e laser (essencial na indústria automotiva).</li>
+                    <li>Pintura automotiva e aplicação de verniz por spray.</li>
+                    <li>Manipulação de materiais pesados e fundição de metais.</li>
+                    <li>Corte, desbaste e polimento de superfícies complexas tridimensionais.</li>
+                </ul>
+                <img src="articulado_aplicacao.jpg" alt="Robô articulado realizando soldagem automotiva">
+            </details>
+
+            <details>
+                <summary>🌐 Integração com Sistemas de Automação e IoT</summary>
+                <p>
+                    Na Indústria 4.0, os braços articulados operam como nós de rede inteligentes. Sensores internos geram fluxos massivos de dados sobre corrente elétrica dos motores, torque em cada junta e aquecimento. Conectados via IIoT, esses dados alimentam "gêmeos digitais" (Digital Twins) na nuvem para analisar a eficiência geral dos equipamentos (OEE) e prever manutenções nos redutores de velocidade de forma inteligente.
+                </p>
+            </details>
+
+            <details>
+                <summary>🏬 Modelos Comerciais e Fabricantes</summary>
+                <p>
+                    Abaixo estão listados três dos maiores fabricantes globais de robôs articulados:
+                </p>
+                <ul>
+                    <li><strong>Fabricante 1: KUKA</strong> - Modelo <i>KR QUANTEC</i>: Altamente robusto, muito utilizado em linhas de montagem automotiva pesada.</li>
+                    <li><strong>Fabricante 2: ABB</strong> - Modelo <i>IRB 2600</i>: Braço compacto e cirúrgico, famoso por sua precisão milimétrica em solda e corte.</li>
+                    <li><strong>Fabricante 3: Fanuc</strong> - Modelo <i>M-20iB</i>: Equipado com sistemas avançados de visão computacional nativos de fábrica.</li>
+                </ul>
+                <img src="articulado_modelos.jpg" alt="Modelos comerciais de robôs KUKA, ABB e Fanuc">
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Robótica Industrial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details").forEach((detalhe, index) => {
+            const salvo = localStorage.getItem("details_articulado_" + index);
+            if (salvo === "open") {
+                detalhe.setAttribute("open", "");
+            }
+            
+            detalhe.addEventListener("toggle", () => {
+                if (detalhe.open) {
+                    localStorage.setItem("details_articulado_" + index, "open");
+                } else {
+                    localStorage.setItem("details_articulado_" + index, "close");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

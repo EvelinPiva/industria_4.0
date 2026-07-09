@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Delta | Catálogo Técnico</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleDelta.css">
+</head>
+<body>
+
+    <div class="imagem-topo">
+        <img src="./Fluxograma e Código Python Em Destaque.jpg" class="hover-neon" alt="Banner Automação Industrial">
+    </div>
+
+    <header>
+        <h1>Portal de Robótica & Indústria 4.0</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="introducao">
+            <h2>Robô Delta (Robô Aranha)</h2>
+            <p>
+                Os robôs Delta são os campeões incontestáveis de velocidade na indústria. Com sua estrutura de braços paralelos, 
+                eles realizam movimentos rápidos e precisos, sendo amplamente utilizados em linhas de embalagem e triagem.
+            </p>
+        </section>
+
+        <section class="destaques">
+            <h2>Especificações Técnicas e Conceitos</h2>
+
+            <details>
+                <summary>📝 Conceito</summary>
+                <p>
+                    Um robô Delta é um tipo de robô paralelo que consiste em três braços conectados a uma base comum articulada acima do espaço de trabalho. 
+                    A grande sacada desse design é que todos os motores pesados ficam fixos na base superior, mantendo os braços móveis extremamente leves, 
+                    o que permite acelerações impressionantes.
+                </p>
+                <img src="delta_conceito.jpg" alt="Estrutura de braços paralelos do robô delta">
+            </details>
+
+            <details>
+                <summary>⚙️ Princípio de Funcionamento</summary>
+                <p>
+                    O robô funciona através do movimento coordenado dos três braços paralelos atuando juntos. Cada braço controla o movimento de paralelogramos 
+                    que mantêm a orientação do atuador final (garra ou ventosa) sempre paralela à base superior. Isso faz com que a ferramenta se desloque de 
+                    forma extremamente ágil nos eixos X, Y e Z.
+                </p>
+            </details>
+
+            <details>
+                <summary>📊 Características Técnicas</summary>
+                <p>
+                    As principais especificações deste modelo incluem:
+                </p>
+                <ul>
+                    <li><strong>Velocidade e Aceleração Extremas:</strong> Capaz de realizar múltiplos ciclos de Pick and Place por segundo.</li>
+                    <li><strong>Cinemática Paralela:</strong> Força dividida igualmente entre os braços acionadores.</li>
+                    <li><strong>Atuador Final Leve:</strong> A ferramenta na ponta carrega pouca massa inercial.</li>
+                    <li><strong>Montagem Superior:</strong> Geralmente instalado suspenso sobre esteiras transportadoras.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🏭 Aplicações Industriais</summary>
+                <p>
+                    É muito comum encontrar robôs Delta trabalhando em:
+                </p>
+                <ul>
+                    <li>Separação e embalagem rápida de alimentos (bombons, biscoitos, frutas).</li>
+                    <li>Triagem e organização de pequenas peças na indústria farmacêutica e cosmética.</li>
+                    <li>Montagem rápida de componentes eletrônicos leves.</li>
+                    <li>Sistemas de inspeção visual associados à inteligência artificial de alta velocidade.</li>
+                </ul>
+                <img src="delta_aplicacao.jpg" alt="Robô Delta operando em alta velocidade em linha de alimentos">
+            </details>
+
+            <details>
+                <summary>🌐 Integração com Sistemas de Automação e IoT</summary>
+                <p>
+                    Por operarem em taxas de ciclo muito altas, os robôs Delta exigem uma integração IoT sofisticada focada em visão computacional e telemetria em tempo real. Câmeras industriais integradas via IoT enviam as coordenadas de peças em esteiras dinâmicas para o robô enquanto coletam dados de qualidade dos itens. Na nuvem, algoritmos monitoram o estresse mecânico das articulações leves de carbono para antecipar trocas antes que ocorra fadiga do material.
+                </p>
+            </details>
+
+            <details>
+                <summary>🏬 Modelos Comerciais e Fabricantes</summary>
+                <p>
+                    Confira três grandes fabricantes reconhecidos pela eficiência de seus modelos Delta no mercado:
+                </p>
+                <ul>
+                    <li><strong>Fabricante 1: Fanuc</strong> - Modelo <i>M-1iA</i>: Um robô delta compacto ideal para montagem de peças super pequenas com alta precisão.</li>
+                    <li><strong>Fabricante 2: ABB</strong> - Modelo <i>FlexPicker IRB 360</i>: O padrão da indústria alimentícia há décadas, famoso por sua velocidade de triagem.</li>
+                    <li><strong>Fabricante 3: Codian Robotics</strong> - Modelo <i>D4-1300</i>: Especializada em robótica paralela com estruturas higiênicas ideais para ambientes farmacêuticos.</li>
+                </ul>
+                <img src="delta_modelos.jpg" alt="Modelos comerciais de robôs Delta Fanuc, ABB e Codian">
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Robótica Industrial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details").forEach((detalhe, index) => {
+            const salvo = localStorage.getItem("details_delta_" + index);
+            if (salvo === "open") {
+                detalhe.setAttribute("open", "");
+            }
+            
+            detalhe.addEventListener("toggle", () => {
+                if (detalhe.open) {
+                    localStorage.setItem("details_delta_" + index, "open");
+                } else {
+                    localStorage.setItem("details_delta_" + index, "close");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

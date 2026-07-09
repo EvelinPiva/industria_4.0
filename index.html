@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início | Portal de Robótica Industrial</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="imagem-topo">
+        <img src="./Fluxograma e Código Python Em Destaque.jpg" class="hover-neon" alt="Banner Automação Industrial">
+    </div>
+
+    <header>
+        <h1>Portal de Robótica & Indústria 4.0</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+    </nav>
+
+<div class="video-container">
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/watch?v=c-JXF_CcpL4" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+</div>
+
+    <main>
+        <section class="introducao">
+            <h2>A Nova Era da Automação Industrial</h2>
+            <p>
+                Seja bem-vindo ao portal técnico focado em soluções para a <strong>Indústria 4.0</strong>. 
+                Este ambiente foi projetado como um catálogo interativo e educacional para estudantes, 
+                clientes e profissionais que desejam compreender a fundo o funcionamento dos modernos sistemas fabris.
+            </p>
+        </section>
+
+        <section class="destaques">
+            <h2>Conceitos Fundamentais</h2>
+
+            <details>
+                <summary>🤖 O que é Robótica Industrial?</summary>
+                <p>
+                    É a área da engenharia e tecnologia que envolve o projeto, construção e aplicação de robôs para a 
+                    automação de tarefas na produção industrial. Esses sistemas realizam trabalhos repetitivos, perigosos 
+                    ou de alta precisão com máxima eficiência.
+                </p>
+                <img src="robotica_industrial.jpg" alt="Robô industrial em linha de montagem">
+            </details>
+
+            <details>
+                <summary>🌐 Internet das Coisas (IoT)</summary>
+                <p>
+                    A IoT refere-se à interconexão digital de objetos cotidianos e máquinas industriais com a internet. 
+                    No ambiente fabril (IIoT), permite que sensores e dispositivos coletem e compartilhem dados em tempo real 
+                    para otimizar processos.
+                </p>
+                <img src="iot_industrial.jpg" alt="Rede de sensores e IoT">
+            </details>
+
+            <details>
+                <summary>📈 A Importância da Automação Industrial</summary>
+                <p>
+                    Automatizar processos garante o aumento da produtividade, redução de desperdícios, padronização da qualidade 
+                    dos produtos e, acima de tudo, retira os operadores humanos de ambientes de risco, realocando-os em funções estratégicas.
+                </p>
+                <img src="automacao_importancia.jpg" alt="Linha de produção automatizada">
+            </details>
+
+            <details>
+                <summary>🔗 Relação entre Robótica e Internet das Coisas (IoT)</summary>
+                <p>
+                    Quando unimos robôs à IoT, transformamos máquinas isoladas em sistemas inteligentes integrados à nuvem. 
+                    O robô envia dados de telemetria, desgaste de peças e produtividade, permitindo a manutenção preditiva 
+                    e tomadas de decisão autônomas na fábrica.
+                </p>
+                <img src="robotica_iot.jpg" alt="Integração Robô e Nuvem">
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Robótica Industrial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details").forEach((detalhe, index) => {
+            const salvo = localStorage.getItem("details_home_" + index);
+            if (salvo === "open") {
+                detalhe.setAttribute("open", "");
+            }
+            
+            detalhe.addEventListener("toggle", () => {
+                if (detalhe.open) {
+                    localStorage.setItem("details_home_" + index, "open");
+                } else {
+                    localStorage.setItem("details_home_" + index, "close");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

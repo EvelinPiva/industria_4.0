@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô SCARA | Catálogo Técnico</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleScara.css">
+</head>
+<body>
+
+    <div class="imagem-topo">
+        <img src="./Fluxograma e Código Python Em Destaque.jpg" class="hover-neon" alt="Banner Automação Industrial">
+    </div>
+
+    <header>
+        <h1>Portal de Robótica & Indústria 4.0</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="introducao">
+            <h2>Robô SCARA</h2>
+            <p>
+                O robô SCARA é amplamente reconhecido por sua altíssima velocidade e precisão em movimentos contidos em um único plano. 
+                Sua arquitetura mecânica o torna ideal para montagens eletrônicas e manipulações rápidas.
+            </p>
+        </section>
+
+        <section class="destaques">
+            <h2>Especificações Técnicas e Conceitos</h2>
+
+            <details>
+                <summary>📝 Conceito</summary>
+                <p>
+                    A sigla SCARA significa <strong>Selective Compliance Assembly Robot Arm</strong> (Braço Robótico para Montagem com Conformidade Seletiva). 
+                    A "conformidade seletiva" significa que o robô é rígido no eixo vertical (Z), mas possui uma flexibilidade controlada no plano horizontal (X-Y), 
+                    o que facilita o encaixe de peças sem quebrar os componentes.
+                </p>
+                <img src="scara_conceito.jpg" alt="Braço articulado do robô SCARA">
+            </details>
+
+            <details>
+                <summary>⚙️ Princípio de Funcionamento</summary>
+                <p>
+                    O SCARA opera com 4 graus de liberdade (eixos). Ele possui duas articulações rotativas paralelas que permitem que o braço 
+                    se estenda e dobre no plano horizontal de forma similar a um braço humano. O quarto eixo realiza um movimento linear vertical (Z) 
+                    e de rotação no atuador final, subindo, descendo e girando a ferramenta de trabalho.
+                </p>
+            </details>
+
+            <details>
+                <summary>📊 Características Técnicas</summary>
+                <p>
+                    As principais especificações deste modelo incluem:
+                </p>
+                <ul>
+                    <li><strong>Velocidade ultra-rápida:</strong> Ciclos de movimento extremamente curtos.</li>
+                    <li><strong>Conformidade Seletiva:</strong> Flexibilidade ideal para tarefas de inserção de pinos e conectores.</li>
+                    <li><strong>Pegada compacta:</strong> Ocupa pouquíssimo espaço na base de fixação em relação ao seu raio de alcance.</li>
+                    <li><strong>Alta repetibilidade:</strong> Precisão cirúrgica na repetição de trajetórias planas.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🏭 Aplicações Industriais</summary>
+                <p>
+                    As aplicações mais comuns na indústria moderna incluem:
+                </p>
+                <ul>
+                    <li>Montagem de placas de circuito impresso (inserção de microcomponentes eletrônicos).</li>
+                    <li>Processos de laboratório e manipulação de medicamentos em indústrias farmacêuticas.</li>
+                    <li>Operações rápidas de "Pick and Place" em esteiras de alta velocidade.</li>
+                    <li>Aparafusamento automatizado e aplicação de pequenas vedações.</li>
+                </ul>
+                <img src="scara_aplicacao.jpg" alt="Robô SCARA trabalhando em linha de montagem de eletrônicos">
+            </details>
+
+            <details>
+                <summary>🌐 Integração com Sistemas de Automação e IoT</summary>
+                <p>
+                    Devido ao alto ritmo de operação dos robôs SCARA, a integração com IoT foca no monitoramento de estresse mecânico e temperatura de juntas. 
+                    Controladores modernos transmitem dados de contagem de ciclos e vibração via redes industriais para plataformas de analytics. 
+                    Isso evita paradas inesperadas na linha de produção (através de algoritmos preditivos) e otimiza o consumo energético da célula de trabalho.
+                </p>
+            </details>
+
+            <details>
+                <summary>🏬 Modelos Comerciais e Fabricantes</summary>
+                <p>
+                    Abaixo estão três grandes fabricantes e seus respectivos modelos de robôs SCARA comerciais:
+                </p>
+                <ul>
+                    <li><strong>Fabricante 1: Epson Robots</strong> - Modelo <i>Epson G3</i>: Altíssima precisão e velocidade, líder mundial em montagem microeletrônica.</li>
+                    <li><strong>Fabricante 2: Staubli</strong> - Modelo <i>TS2-60</i>: Conhecido por sua robustez e opções com alta proteção ambiental para ambientes limpos (Cleanroom).</li>
+                    <li><strong>Fabricante 3: Omron Adept</strong> - Modelo <i>Cobra 600</i>: Totalmente focado em aplicações industriais integradas e controle dinâmico de esteiras.</li>
+                </ul>
+                <img src="scara_modelos.jpg" alt="Modelos comerciais de robôs SCARA Epson, Staubli e Omron">
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Robótica Industrial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details").forEach((detalhe, index) => {
+            const salvo = localStorage.getItem("details_scara_" + index);
+            if (salvo === "open") {
+                detalhe.setAttribute("open", "");
+            }
+            
+            detalhe.addEventListener("toggle", () => {
+                if (detalhe.open) {
+                    localStorage.setItem("details_scara_" + index, "open");
+                } else {
+                    localStorage.setItem("details_scara_" + index, "close");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

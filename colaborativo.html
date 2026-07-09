@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Colaborativo | Catálogo Técnico</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="imagem-topo">
+        <img src="./Fluxograma e Código Python Em Destaque.jpg" class="hover-neon" alt="Banner Automação Industrial">
+    </div>
+
+    <header>
+        <h1>Portal de Robótica & Indústria 4.0</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="introducao">
+            <h2>Robô Colaborativo (Cobot)</h2>
+            <p>
+                Os robôs colaborativos representam uma das maiores evoluções da Indústria 4.0. Diferente dos robôs tradicionais, 
+                eles foram projetados para trabalhar lado a lado com seres humanos sem a necessidade de grades de proteção física.
+            </p>
+        </section>
+
+        <section class="destaques">
+            <h2>Especificações Técnicas e Conceitos</h2>
+
+            <details>
+                <summary>📝 Conceito</summary>
+                <p>
+                    Um robô colaborativo, ou simplesmente <strong>Cobot</strong>, é um robô desenvolvido para interagir diretamente 
+                    com humanos em um espaço de trabalho compartilhado. Eles priorizam a segurança, flexibilidade e facilidade 
+                    de reprogramação, funcionando como assistentes avançados para os operadores.
+                </p>
+                <img src="colaborativo_conceito.jpg" alt="Operador trabalhando ao lado de um robô colaborativo">
+            </details>
+
+            <details>
+                <summary>⚙️ Princípio de Funcionamento</summary>
+                <p>
+                    O funcionamento do Cobot baseia-se em sistemas avançados de detecção de força e torque em todas as suas juntas, 
+                    além de sensores táteis na carcaça. Se o robô encontrar qualquer barreira ou resistência (como o braço de um operador), 
+                    ele interrompe o movimento instantaneamente em milissegundos para evitar lesões.
+                </p>
+            </details>
+
+            <details>
+                <summary>📊 Características Técnicas</summary>
+                <p>
+                    As principais especificações deste modelo incluem:
+                </p>
+                <ul>
+                    <li><strong>Limitação de Força e Potência:</strong> Desaceleração ou parada automática ao menor impacto.</li>
+                    <li><strong>Programação por Aprendizagem (Lead-through):</strong> O operador pode mover o braço com as mãos para gravar trajetórias.</li>
+                    <li><strong>Design Seguro:</strong> Bordas arredondadas e ausência de pontos de esmagamento.</li>
+                    <li><strong>Fácil Realocação:</strong> Leves e fáceis de fixar em diferentes postos de trabalho.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🏭 Aplicações Industriais</summary>
+                <p>
+                    Suas aplicações crescem rapidamente em áreas como:
+                </p>
+                <ul>
+                    <li>Inspeção de qualidade final auxiliando o operador humano.</li>
+                    <li>Operações de "Kitting" (montagem de kits com peças variadas).</li>
+                    <li>Alimentação de lixas, polidoras e parafusamento de precisão.</li>
+                    <li>Paletização de caixas leves em finais de linha de embalagem flexíveis.</li>
+                </ul>
+                <img src="colaborativo_aplicacao.jpg" alt="Cobot aplicando parafusos em peça industrial">
+            </details>
+
+            <details>
+                <summary>🌐 Integração com Sistemas de Automação e IoT</summary>
+                <p>
+                    Os Cobots são nativos da era IoT. Seus controladores conectam-se diretamente a sistemas em nuvem para enviar métricas de desempenho em tempo real. Através de dashboards IoT, supervisores monitoram dados de eficiência (OEE), logs de paradas de segurança e alterações de tarefas. Além disso, atualizações de firmware e diagnósticos de calibração podem ser feitos remotamente via rede segura.
+                </p>
+            </details>
+
+            <details>
+                <summary>🏬 Modelos Comerciais e Fabricantes</summary>
+                <p>
+                    Confira três grandes fabricantes líderes no segmento de robótica colaborativa:
+                </p>
+                <ul>
+                    <li><strong>Fabricante 1: Universal Robots</strong> - Modelo <i>UR10e</i>: O cobot mais famoso do mercado, com 10kg de carga útil e excelente alcance para paletização.</li>
+                    <li><strong>Fabricante 2: FANUC</strong> - Modelo <i>CRX-10iA</i>: Combina a confiabilidade mecânica da FANUC com uma interface extremamente amigável e segura.</li>
+                    <li><strong>Fabricante 3: Techman Robot</strong> - Modelo <i>TM5</i>: Diferencia-se por trazer um sistema de visão computacional inteligente totalmente integrado de fábrica no braço.</li>
+                </ul>
+                <img src="colaborativo_modelos.jpg" alt="Modelos comerciais de Cobots da Universal Robots, Fanuc e Techman">
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Robótica Industrial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details").forEach((detalhe, index) => {
+            const salvo = localStorage.getItem("details_colaborativo_" + index);
+            if (salvo === "open") {
+                detalhe.setAttribute("open", "");
+            }
+            
+            detalhe.addEventListener("toggle", () => {
+                if (detalhe.open) {
+                    localStorage.setItem("details_colaborativo_" + index, "open");
+                } else {
+                    localStorage.setItem("details_colaborativo_" + index, "close");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

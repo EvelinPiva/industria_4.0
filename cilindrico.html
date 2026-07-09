@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Cilíndrico | Catálogo Técnico</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleCilindrico.css">
+</head>
+<body>
+
+    <div class="imagem-topo">
+        <img src="./Fluxograma e Código Python Em Destaque.jpg" class="hover-neon" alt="Banner Automação Industrial">
+    </div>
+
+    <header>
+        <h1>Portal de Robótica & Indústria 4.0</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="introducao">
+            <h2>Robô Cilíndrico</h2>
+            <p>
+                Os robôs cilíndricos possuem uma configuração mecânica compacta, projetada especificamente para trabalhar 
+                dentro de um espaço volumétrico em formato de cilindro. São excelentes para operações que exigem alcance linear profundo dentro de cavidades.
+            </p>
+        </section>
+
+        <section class="destaques">
+            <h2>Especificações Técnicas e Conceitos</h2>
+
+            <details>
+                <summary>📝 Conceito</summary>
+                <p>
+                    Um robô cilíndrico é composto por uma coluna central rotativa que serve como base mecânica, equipada com guias 
+                    verticais e horizontais. A combinação de movimentos rotacionais com movimentos puramente lineares gera um 
+                    envelope de trabalho (espaço de atuação) que se assemelha geometricamente a um cilindro.
+                </p>
+                <img src="cilindrico_conceito.jpg" alt="Envelope de trabalho do robô cilíndrico">
+            </details>
+
+            <details>
+                <summary>⚙️ Princípio de Funcionamento</summary>
+                <p>
+                    O princípio baseia-se em 3 eixos principais de movimento coordenados: uma junta rotativa na base que permite o giro 
+                    no plano horizontal (coordenada angular θ), seguidamente por dois eixos lineares ortogonais — um responsável pelo curso vertical 
+                    da coluna (Z) e outro pelo avanço/recuo horizontal do braço telescópico (R).
+                </p>
+            </details>
+
+            <details>
+                <summary>📊 Características Técnicas</summary>
+                <p>
+                    As principais especificações deste modelo incluem:
+                </p>
+                <ul>
+                    <li><strong>Rigidez mecânica elevada:</strong> A coluna central confere excelente estabilidade contra deflexões.</li>
+                    <li><strong>Design compacto:</strong> Economiza espaço físico horizontal nas células de manufatura.</li>
+                    <li><strong>Alcance radial reto:</strong> Facilidade para adentrar compartimentos profundos sem colisões complexas.</li>
+                    <li><strong>Fácil parametrização:</strong> Programação simples por utilizar coordenadas cilíndricas.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🏭 Aplicações Industriais</summary>
+                <p>
+                    Suas aplicações tradicionais e modernas concentram-se em:
+                </p>
+                <ul>
+                    <li>Alimentação e descarga de injetoras de plástico e prensas hidráulicas.</li>
+                    <li>Operações de revestimento, imersão em tanques químicos ou fundição.</li>
+                    <li>Manipulação de discos de silício (Wafers) nas indústrias de semicondutores.</li>
+                    <li>Transferência de peças entre esteiras paralelas de alturas distintas.</li>
+                </ul>
+                <img src="cilindrico_aplicacao.jpg" alt="Robô cilíndrico manipulando materiais em máquina injetora">
+            </details>
+
+            <details>
+                <summary>🌐 Integração com Sistemas de Automação e IoT</summary>
+                <p>
+                    A integração com a IoT industrial nos robôs cilíndricos foca no rastreamento pneumático/hidráulico e de folgas na rotação da base. Os controladores transmitem relatórios de telemetria operacionais para sistemas MES (Manufacturing Execution Systems). Através de sensores IoT de corrente e pressão, é possível monitorar desvios nas guias telescópicas e calcular a degradação mecânica das juntas em tempo real na nuvem.
+                </p>
+            </details>
+
+            <details>
+                <summary>🏬 Modelos Comerciais e Fabricantes</summary>
+                <p>
+                    Embora menos comuns que os articulados, grandes fabricantes desenvolvem soluções customizadas ou séries específicas para essa topologia:
+                </p>
+                <ul>
+                    <li><strong>Fabricante 1: Seiko Robots</strong> - Modelo <i>RT3300</i>: Altíssima precisão de posicionamento, muito utilizado no manuseio de componentes ópticos.</li>
+                    <li><strong>Fabricante 2: Sankyo Seiki</strong> - Modelo <i>SR8400</i>: Projetado especificamente para operações limpas e linhas de semicondutores de alto desempenho.</li>
+                    <li><strong>Fabricante 3: Yamaha Robotics</strong> - Modelo <i>Série ERD</i>: Atuadores cilíndricos com braço telescópico elétrico otimizados para montagens rápidas e Pick & Place pesado.</li>
+                </ul>
+                <img src="cilindrico_modelos.jpg" alt="Modelos de robôs cilíndricos de alta tecnologia Yamaha, Seiko e Sankyo">
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Robótica Industrial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details").forEach((detalhe, index) => {
+            const salvo = localStorage.getItem("details_cilindrico_" + index);
+            if (salvo === "open") {
+                detalhe.setAttribute("open", "");
+            }
+            
+            detalhe.addEventListener("toggle", () => {
+                if (detalhe.open) {
+                    localStorage.setItem("details_cilindrico_" + index, "open");
+                } else {
+                    localStorage.setItem("details_cilindrico_" + index, "close");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
