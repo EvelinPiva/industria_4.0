@@ -1,291 +1,316 @@
 /* ==========================================================================
-   1. CORE E FONTES DE ENGENHARIA AVANÇADA
+   1. BASE — FONTE FORMAL, FUNDO BRANCO
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Rajdhani:wght@500;600;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --azul-corp: #1a3c6e;
+    --azul-corp-escuro: #12294d;
+    --azul-claro: #e8eff8;
+    --cinza-texto: #333333;
+    --cinza-borda: #dcdfe4;
+    --cinza-fundo: #f5f6f8;
+    --sidebar-largura: 260px;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-    font-family: 'Rajdhani', sans-serif;
-    /* Fundo Tecnológico Inovador: Textura metálica gradiente suave */
-    background: radial-gradient(circle at 50% 50%, #252b35 0%, #161a20 100%);
-    background-attachment: fixed;
-    color: #e6edf8;
-    line-height: 1.5;
-    font-size: 1.2rem;
+    font-family: Arial, Helvetica, "Segoe UI", sans-serif;
+    background: #ffffff;
+    color: var(--cinza-texto);
+    line-height: 1.6;
+    font-size: 1rem;
+    overflow-x: hidden;
 }
 
 /* ==========================================================================
-   2. BANNER HERO COM MÁSCARA DE RECORTE INDUSTRIAL
+   2. SIDEBAR FIXA (BOTÕES DE NAVEGAÇÃO À ESQUERDA)
    ========================================================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-largura);
+    height: 100vh;
+    background: var(--azul-corp-escuro);
+    border-right: 1px solid var(--cinza-borda);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-brand {
+    padding: 1.6em 1.4em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-brand h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    letter-spacing: 0.3px;
+}
+
+.sidebar-brand h1 span {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #b9c6db;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0.8em 0;
+    flex: 1;
+}
+
+.sidebar li {
+    margin: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 0.85em 1.4em;
+    color: #d3dcea;
+    text-decoration: none;
+    font-size: 0.98rem;
+    font-weight: 400;
+    border-left: 4px solid transparent;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    border-left-color: #5b83c4;
+}
+
+.sidebar a.active {
+    background: rgba(255, 255, 255, 0.09);
+    color: #ffffff;
+    border-left-color: #ffffff;
+    font-weight: 700;
+}
+
+.sidebar-footer {
+    padding: 1em 1.4em;
+    font-size: 0.78rem;
+    color: #8494ac;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Botão hamburguer (mobile) */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 200;
+    background: var(--azul-corp-escuro);
+    color: #fff;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. ÁREA DE CONTEÚDO
+   ========================================================================== */
+.content-wrapper {
+    margin-left: var(--sidebar-largura);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .imagem-topo {
     width: 100%;
-    max-height: 380px;
+    max-height: 220px;
     overflow: hidden;
     position: relative;
-    border-bottom: 4px solid #ff6b00; /* Linha Laranja Alerta/Industrial */
+    border-bottom: 1px solid var(--cinza-borda);
 }
 
 .imagem-topo img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
-    filter: grayscale(30%) brightness(0.8) contrast(1.1);
+    filter: none;
 }
 
 .hover-neon {
-    transition: filter 0.4s ease, transform 0.4s ease;
+    transition: transform 0.4s ease;
 }
 
 .hover-neon:hover {
-    filter: grayscale(0%) brightness(1);
-    transform: scale(1.005);
+    transform: scale(1.01);
 }
 
 header {
-    background: linear-gradient(180deg, rgba(22, 26, 32, 0.9) 0%, rgba(37, 43, 53, 0.4) 100%);
-    text-align: center;
-    padding: 3em 0 2em 0;
+    background: #ffffff;
+    text-align: left;
+    padding: 1.6em 3em 1em 3em;
+    border-bottom: 1px solid var(--cinza-borda);
 }
 
 header h1 {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 2.2em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7em;
     font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    /* Brilho industrial sutil */
-    text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    color: var(--azul-corp);
+    letter-spacing: 0.2px;
 }
 
 /* ==========================================================================
-   3. MENU MECATRÔNICO FLUTUANTE (GLASSMORPHISM)
-   ========================================================================== */
-nav {
-    background: rgba(22, 26, 32, 0.75);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 14px 0;
-}
-
-nav li {
-    margin: 0 0.4em;
-}
-
-nav a {
-    color: #a3b3cc;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.05rem;
-    padding: 0.6em 1.3em;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-}
-
-/* Indicador luminoso ao passar o mouse */
-nav a:hover {
-    color: #00f0ff; /* Azul Elétrico */
-    background: rgba(0, 240, 255, 0.05);
-    border-radius: 4px;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: #ff6b00;
-    transition: all 0.3s ease;
-}
-
-nav a:hover::after {
-    width: 80%;
-    left: 10%;
-}
-
-/* ==========================================================================
-   4. INTERFACE DO LABORATÓRIO (MAIN CONTAINER)
-   ========================================================================== */
-main {
-    max-width: 1050px;
-    margin: 3.5em auto;
-    padding: 3.5em;
-    /* Efeito Placa de Vidro Fumê / Fibra */
-    background: rgba(33, 39, 49, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 20px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-main h2 {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 1.5em;
-    margin-bottom: 1.2em;
-    color: #ff6b00; /* Laranja Ativo */
-    letter-spacing: 2px;
-    position: relative;
-    display: inline-block;
-}
-
-.introducao p {
-    font-size: 1.3rem;
-    color: #b0c4de;
-    text-align: justify;
-    margin-bottom: 2em;
-    font-weight: 500;
-}
-
-/* ==========================================================================
-   5. CONTAINER DE VÍDEO (CÁPSULA TECNOLÓGICA)
+   4. CONTAINER DE VÍDEO
    ========================================================================== */
 .video-container {
     display: flex;
     justify-content: center;
-    margin: 10px auto 40px auto;
-    padding: 10px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #ff6b00, #00f0ff);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    margin: 1.5em auto 0.5em auto;
+    padding: 8px;
+    border-radius: 6px;
+    background: var(--cinza-fundo);
+    border: 1px solid var(--cinza-borda);
     width: fit-content;
-    transition: transform 0.3s ease;
+    max-width: calc(100% - 3em);
 }
 
 .video-container iframe {
-    border-radius: 10px;
+    border-radius: 4px;
     border: none;
-}
-
-.video-container:hover {
-    transform: scale(1.02) rotate(-0.5deg);
+    max-width: 100%;
 }
 
 /* ==========================================================================
-   6. DETAILS/SUMMARY EM MÓDULOS EXPANSÍVEIS DINÂMICOS
+   5. CONTEÚDO PRINCIPAL
+   ========================================================================== */
+main {
+    max-width: 900px;
+    width: 100%;
+    margin: 2em auto;
+    padding: 0 3em;
+    flex: 1;
+}
+
+main h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 0.8em;
+    color: var(--azul-corp);
+    letter-spacing: 0.2px;
+}
+
+.introducao p {
+    font-size: 1.05rem;
+    color: var(--cinza-texto);
+    text-align: justify;
+    margin-bottom: 1.5em;
+}
+
+/* ==========================================================================
+   6. MÓDULOS EXPANSÍVEIS (DETAILS/SUMMARY)
    ========================================================================== */
 details {
-    margin: 1.5em 0;
-    padding: 1.4em;
-    background: rgba(22, 26, 32, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-left: 4px solid #3b4656; /* Detalhe lateral padrão */
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    margin: 1em 0;
+    padding: 1.1em 1.3em;
+    background: #ffffff;
+    border: 1px solid var(--cinza-borda);
+    border-left: 4px solid var(--azul-corp);
+    border-radius: 4px;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
 details:hover {
-    background: rgba(22, 26, 32, 0.8);
-    border-color: rgba(0, 240, 255, 0.3);
-    border-left-color: #00f0ff; /* Acende em azul elétrico */
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: var(--cinza-fundo);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Quando o painel está aberto */
 details[open] {
-    border-left-color: #ff6b00; /* Muda para laranja ativo ao expandir */
-    background: rgba(22, 26, 32, 0.9);
+    background: var(--cinza-fundo);
 }
 
 summary {
-    font-size: 1.35rem;
+    font-size: 1.08rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--azul-corp-escuro);
     cursor: pointer;
     outline: none;
-    position: relative;
-    padding-left: 35px;
     list-style: none;
-    letter-spacing: 0.5px;
 }
 
 summary::-webkit-details-marker {
     display: none;
 }
 
-/* Indicador Mecânico Customizado */
 summary::before {
-    content: "⚡";
-    position: absolute;
-    left: 5px;
-    top: 0px;
-    font-size: 1.1rem;
-    color: #ff6b00;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    content: "▸";
+    display: inline-block;
+    width: 1.1em;
+    color: var(--azul-corp);
+    transition: transform 0.2s ease;
 }
 
 details[open] summary::before {
-    transform: rotate(180deg);
-    filter: hue-rotate(120deg); /* Altera o ícone para o ecossistema azul */
+    transform: rotate(90deg);
 }
 
 details p {
-    color: #cbd5e1;
-    margin-top: 1.2em;
-    font-size: 1.2rem;
-    padding-left: 5px;
+    color: var(--cinza-texto);
+    margin-top: 0.9em;
+    font-size: 0.98rem;
 }
 
 details ul {
-    padding-left: 2em;
-    margin-top: 1em;
+    padding-left: 1.6em;
+    margin-top: 0.8em;
 }
 
 details li {
-    color: #cbd5e1;
-    margin-bottom: 0.6em;
-    font-size: 1.15rem;
+    color: var(--cinza-texto);
+    margin-bottom: 0.5em;
+    font-size: 0.98rem;
 }
 
 details strong {
-    color: #00f0ff; /* Destaca os termos técnicos em cian */
+    color: var(--azul-corp);
 }
 
 details img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    border-radius: 12px;
-    margin-top: 1.5em;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    margin-top: 1.2em;
+    border: 1px solid var(--cinza-borda);
+    display: block;
 }
 
 details a {
     display: inline-block;
-    margin-top: 1.2em;
-    color: #ff6b00;
+    margin-top: 1em;
+    color: var(--azul-corp);
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
+    font-size: 0.98rem;
 }
 
 details a:hover {
-    color: #00f0ff;
     text-decoration: underline;
 }
 
@@ -295,41 +320,58 @@ div p {
 }
 
 /* ==========================================================================
-   7. INDUSTRIAL FOOTER
+   7. RODAPÉ
    ========================================================================== */
 footer {
-    background: #111418;
+    background: var(--cinza-fundo);
     text-align: center;
-    padding: 2.5em;
-    margin-top: 6em;
-    font-size: 1rem;
-    color: #4a5568;
-    border-top: 2px solid #212731;
-    font-family: 'Syncopate', sans-serif;
-    letter-spacing: 2px;
+    padding: 1.6em;
+    margin-top: 3em;
+    font-size: 0.85rem;
+    color: #6b7280;
+    border-top: 1px solid var(--cinza-borda);
 }
 
 /* ==========================================================================
-   8. RESPONSIVIDADE E ADAPTAÇÃO MOBILE
+   8. RESPONSIVIDADE — MANTÉM DENTRO DA TELA
    ========================================================================== */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
-        letter-spacing: 2px;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
-    }
-    
-    nav li {
-        margin: 0.5em 0;
-    }
-    
+@media (max-width: 900px) {
     main {
-        margin: 1.5em;
-        padding: 1.8em;
+        padding: 0 1.5em;
+    }
+    header {
+        padding: 1.4em 1.5em 1em 1.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        width: 240px;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+    }
+
+    header {
+        padding-left: 3.5em;
+    }
+
+    header h1 {
+        font-size: 1.25em;
+    }
+
+    main {
+        margin: 1.5em auto;
     }
 }
