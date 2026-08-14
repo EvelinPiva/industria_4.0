@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensores | Portal de Robótica Industrial</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <h1>Portal de Robótica<span>&amp; Indústria 4.0</span></h1>
+        </div>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sensores.html" class="active">Sensores</a></li>
+            <li><a href="arduino.html">Arduíno</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+        <div class="sidebar-footer">Catálogo Técnico</div>
+    </nav>
+
+    <div class="content-wrapper">
+        <header>
+            <h1>Catálogo de Sensores</h1>
+        </header>
+
+        <main>
+            <section class="introducao">
+                <h2>Sensores para IoT e Automação</h2>
+                <p>
+                    Abaixo apresentamos as especificações técnicas detalhadas de 10 sensores essenciais na Indústria 4.0 e em projetos de Internet das Coisas (IoT).
+                </p>
+            </section>
+
+            <div class="sensor-card">
+                <h3>1. Sensor de Temperatura e Umidade DHT11</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Temperatura e Umidade</li>
+                    <li><strong>Conceito:</strong> Sensor digital básico para medição ambiental.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Utiliza um sensor capacitivo de umidade e um termistor para medir o ar ao redor, enviando um sinal digital pelo pino de dados.</li>
+                    <li><strong>Especificações:</strong> Tensão 3.3V a 5V; Umidade 20-80% (Precisão 5%); Temp 0-50°C (Precisão ±2°C).</li>
+                    <li><strong>Tipo de sinal:</strong> Digital (Protocolo One-Wire proprietário).</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Estufas, controle de HVAC, monitoramento de salas de servidores.</li>
+                    <li><strong>Exemplo de projeto:</strong> Estação meteorológica IoT que envia dados para um dashboard web.</li>
+                    <li><strong>Fabricantes:</strong> Aosong, genéricos da China.</li>
+                </ul>
+                <img src="dht11.png" alt="DHT11" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>2. Sensor de Temperatura LM35</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Temperatura</li>
+                    <li><strong>Conceito:</strong> Sensor de temperatura analógico de precisão centígrada.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Baseado nas propriedades dos semicondutores, varia a tensão de saída de forma linear e proporcional à temperatura em Celsius.</li>
+                    <li><strong>Especificações:</strong> Tensão de 4V a 30V; Faixa -55°C a 150°C; Fator de escala 10mV/°C.</li>
+                    <li><strong>Tipo de sinal:</strong> Analógico.</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Monitoramento de painéis elétricos, controle térmico de motores.</li>
+                    <li><strong>Exemplo de projeto:</strong> Alarme térmico para evitar superaquecimento de inversores.</li>
+                    <li><strong>Fabricantes:</strong> Texas Instruments.</li>
+                </ul>
+                <img src="lm35.png" alt="LM35" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>3. Sensor de Luminosidade LDR</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Luminosidade</li>
+                    <li><strong>Conceito:</strong> Resistor Dependente de Luz.</li>
+                    <li><strong>Princípio de funcionamento:</strong> A resistência do material (geralmente sulfeto de cádmio) diminui à medida que a intensidade da luz incidente aumenta.</li>
+                    <li><strong>Especificações:</strong> Resistência no escuro ~1MΩ; na luz ~10-100Ω.</li>
+                    <li><strong>Tipo de sinal:</strong> Analógico (usando divisor de tensão).</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Automação de iluminação viária, controle de persianas em smart buildings.</li>
+                    <li><strong>Exemplo de projeto:</strong> Poste de luz autônomo que acende ao anoitecer.</li>
+                    <li><strong>Fabricantes:</strong> Diversos genéricos.</li>
+                </ul>
+                <img src="ldr.png" alt="LDR" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>4. Sensor Ultrassônico HC-SR04</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Distância</li>
+                    <li><strong>Conceito:</strong> Sensor de medição de distância sem contato físico.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Emite um pulso ultrassônico e calcula o tempo que o eco demora para retornar após refletir em um obstáculo.</li>
+                    <li><strong>Especificações:</strong> Tensão 5V; Alcance 2cm a 400cm; Precisão 3mm.</li>
+                    <li><strong>Tipo de sinal:</strong> Digital (pulsos PWM para Trig e Echo).</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Medição de nível em silos de grãos não poeirentos, detecção de paletes em esteiras.</li>
+                    <li><strong>Exemplo de projeto:</strong> Robô autônomo que desvia de obstáculos.</li>
+                    <li><strong>Fabricantes:</strong> Genéricos.</li>
+                </ul>
+                <img src="hcsr04.png" alt="HC-SR04" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>5. Sensor de Movimento PIR HC-SR501</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Movimento</li>
+                    <li><strong>Conceito:</strong> Sensor Infravermelho Passivo.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Detecta mudanças na radiação infravermelha (calor) quando um corpo se move dentro de seu alcance.</li>
+                    <li><strong>Especificações:</strong> Tensão 4.5V a 20V; Alcance de detecção ~7 metros; Ângulo 110°.</li>
+                    <li><strong>Tipo de sinal:</strong> Digital.</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Sistemas de segurança, ativação de iluminação em galpões.</li>
+                    <li><strong>Exemplo de projeto:</strong> Alarme de invasão enviando notificação push para smartphone.</li>
+                    <li><strong>Fabricantes:</strong> Genéricos.</li>
+                </ul>
+                <img src="pir.png" alt="PIR HC-SR501" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>6. Sensor de Gás MQ-2</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Gás</li>
+                    <li><strong>Conceito:</strong> Sensor detector de gases inflamáveis e fumaça.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Possui um material sensível (SnO2) que diminui a resistência quando exposto a gases, aumentando a tensão de saída no circuito.</li>
+                    <li><strong>Especificações:</strong> Tensão 5V; Detecta GLP, Propano, Metano, Álcool, Hidrogênio, Fumaça.</li>
+                    <li><strong>Tipo de sinal:</strong> Analógico (variação de tensão) e Digital (limite ajustável).</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Monitoramento de vazamentos em plantas petroquímicas, cozinhas industriais.</li>
+                    <li><strong>Exemplo de projeto:</strong> Sistema de exaustão automático que liga ao detectar fumaça.</li>
+                    <li><strong>Fabricantes:</strong> Hanwei Electronics.</li>
+                </ul>
+                <img src="mq2.png" alt="MQ-2" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>7. Sensor de Nível (Boia Magnética)</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Nível</li>
+                    <li><strong>Conceito:</strong> Chave de nível para líquidos.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Um flutuador magnético move-se com o nível do líquido e aciona um contato Reed Switch embutido na haste.</li>
+                    <li><strong>Especificações:</strong> Tensão máxima ~100V DC; Corrente max ~0.5A.</li>
+                    <li><strong>Tipo de sinal:</strong> Digital (On/Off).</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Controle de bombas de água, monitoramento de reservatórios e tanques químicos.</li>
+                    <li><strong>Exemplo de projeto:</strong> Sistema automático de enchimento de caixa d'água.</li>
+                    <li><strong>Fabricantes:</strong> Icos, genéricos.</li>
+                </ul>
+                <img src="boia.png" alt="Sensor de Boia" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>8. Sensor de Corrente ACS712</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Corrente</li>
+                    <li><strong>Conceito:</strong> Módulo de medição de corrente elétrica AC/DC isolado.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Utiliza o Efeito Hall para detectar o campo magnético gerado pela corrente passando pelo condutor interno, convertendo-o em tensão proporcional.</li>
+                    <li><strong>Especificações:</strong> Modelos para 5A, 20A ou 30A; Tensão de operação 5V; Isolamento galvânico.</li>
+                    <li><strong>Tipo de sinal:</strong> Analógico.</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Medição de consumo energético de motores, detecção de falhas por sobrecorrente.</li>
+                    <li><strong>Exemplo de projeto:</strong> Medidor de energia IoT que estima o gasto em kWh da máquina.</li>
+                    <li><strong>Fabricantes:</strong> Allegro MicroSystems.</li>
+                </ul>
+                <img src="acs712.png" alt="ACS712" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>9. Módulo RFID MFRC522</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> RFID (Identificação)</li>
+                    <li><strong>Conceito:</strong> Leitor e gravador de cartões/tags RFID a 13.56 MHz.</li>
+                    <li><strong>Princípio de funcionamento:</strong> Emite um campo de radiofrequência para energizar a tag passiva e realizar a troca de dados através de modulação.</li>
+                    <li><strong>Especificações:</strong> Tensão 3.3V; Frequência 13.56MHz; Distância de leitura ~5cm.</li>
+                    <li><strong>Tipo de sinal:</strong> SPI, I2C ou UART.</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Controle de acesso de funcionários em áreas restritas, rastreamento de lotes de produção.</li>
+                    <li><strong>Exemplo de projeto:</strong> Catraca de acesso integrada a um banco de dados de funcionários.</li>
+                    <li><strong>Fabricantes:</strong> NXP Semiconductors.</li>
+                </ul>
+                <img src="mfrc522.png" alt="MFRC522" class="sensor-img">
+            </div>
+
+            <div class="sensor-card">
+                <h3>10. Célula de Carga + HX711</h3>
+                <ul>
+                    <li><strong>Categoria:</strong> Peso</li>
+                    <li><strong>Conceito:</strong> Sistema para medição de força e peso.</li>
+                    <li><strong>Princípio de funcionamento:</strong> A célula de carga sofre deformação mecânica que altera a resistência de strain gauges. O módulo HX711 amplifica essa microvariação analógica para o microcontrolador.</li>
+                    <li><strong>Especificações:</strong> Capacidades variadas (1kg, 5kg, 50kg, etc.); ADC de 24 bits (HX711).</li>
+                    <li><strong>Tipo de sinal:</strong> Digital (Protocolo serial síncrono próprio - DT/SCK).</li>
+                    <li><strong>Aplicações industriais/IoT:</strong> Balanças industriais, verificação de peso em linhas de envase.</li>
+                    <li><strong>Exemplo de projeto:</strong> Balança inteligente de estoque que avisa quando peças acabam.</li>
+                    <li><strong>Fabricantes:</strong> Avia Semiconductor (HX711), genéricos.</li>
+                </ul>
+                <img src="hx711.png" alt="Célula de Carga" class="sensor-img">
+            </div>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Portal de Robótica Industrial e IoT. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

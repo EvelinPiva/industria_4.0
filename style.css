@@ -375,3 +375,60 @@ footer {
         margin: 1.5em auto;
     }
 }
+
+/* ==========================================================================
+   9. SENSORES E ARDUINO
+   ========================================================================== */
+.sensor-card {
+    background-color: #ffffff;
+    border: 1px solid var(--cinza-borda);
+    border-left: 4px solid var(--azul-corp);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    color: var(--cinza-texto);
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+.sensor-card:hover {
+    background: var(--cinza-fundo);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.sensor-card h3 {
+    color: var(--azul-corp);
+    border-bottom: 1px solid var(--cinza-borda);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.sensor-card ul {
+    list-style: none;
+    padding: 0;
+}
+.sensor-card li {
+    margin-bottom: 8px;
+}
+.sensor-card strong {
+    color: var(--azul-corp-escuro);
+}
+.sensor-img {
+    max-width: 200px;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: block;
+    border: 1px solid var(--cinza-borda);
+}
+.codigo-arduino {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+.arduino-section {
+    margin-bottom: 30px;
+}

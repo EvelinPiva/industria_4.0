@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduíno | Portal de Robótica Industrial</title>
+    <link rel="shortcut icon" href="./map.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <h1>Portal de Robótica<span>&amp; Indústria 4.0</span></h1>
+        </div>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sensores.html">Sensores</a></li>
+            <li><a href="arduino.html" class="active">Arduíno</a></li>
+            <li><a href="cartesiano.html">Cartesiano</a></li>
+            <li><a href="scara.html">SCARA</a></li>
+            <li><a href="articulado.html">Articulado</a></li>
+            <li><a href="cilindrico.html">Cilíndrico</a></li>
+            <li><a href="delta.html">Delta</a></li>
+            <li><a href="polar.html">Polar</a></li>
+            <li><a href="colaborativo.html">Colaborativo (Cobot)</a></li>
+        </ul>
+        <div class="sidebar-footer">Catálogo Técnico</div>
+    </nav>
+
+    <div class="content-wrapper">
+        <header>
+            <h1>Plataforma Arduíno</h1>
+        </header>
+
+        <main>
+            <section class="introducao">
+                <h2>Características e Funcionamento</h2>
+                <p>
+                    O <strong>Arduino</strong> é uma placa de microcontrolador projetada para facilitar a criação de projetos de eletrônica e automação. 
+                    Ele funciona lendo entradas (como a luz em um sensor ou um botão pressionado) e as transformando em saídas (como ativar um motor ou acender um LED).
+                </p>
+                <p>
+                    <strong>Principais Características:</strong>
+                </p>
+                <ul>
+                    <li>Open-source (Hardware e Software livres).</li>
+                    <li>Fácil de programar via Arduino IDE (linguagem C/C++ simplificada).</li>
+                    <li>Ampla comunidade e bibliotecas prontas.</li>
+                    <li>Pinos digitais e analógicos para interface direta com sensores.</li>
+                    <li>Baixo custo e alta acessibilidade para projetos IoT e industriais.</li>
+                </ul>
+            </section>
+
+            <section class="destaques">
+                <h2>Exemplos de Programação com Sensores</h2>
+                <p>Abaixo apresentamos exemplos de códigos para 10 sensores frequentemente utilizados em automação e IoT com Arduino.</p>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>1. Sensor de Temperatura e Umidade DHT11</summary>
+                        <p>Utilizado para monitoramento ambiental básico.</p>
+                        <div class="codigo-arduino">
+#include "DHT.h"
+#define DHTPIN 2
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  Serial.print("Umidade: ");
+  Serial.print(h);
+  Serial.print("%  Temperatura: ");
+  Serial.print(t);
+  Serial.println("°C");
+  delay(2000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>2. Sensor de Temperatura LM35</summary>
+                        <p>Sensor analógico preciso e de baixo custo.</p>
+                        <div class="codigo-arduino">
+const int pinoLM35 = A0; 
+float temperaturaC;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int leitura = analogRead(pinoLM35);
+  // Converte o valor analógico para tensão (0-5V)
+  float tensao = leitura * (5.0 / 1023.0);
+  // O LM35 fornece 10mV por grau Celsius
+  temperaturaC = tensao / 0.01;
+  
+  Serial.print("Temperatura: ");
+  Serial.print(temperaturaC);
+  Serial.println(" C");
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>3. Sensor de Luminosidade LDR</summary>
+                        <p>Resistor cuja resistência varia com a intensidade de luz.</p>
+                        <div class="codigo-arduino">
+const int pinoLDR = A0;
+int valorLDR = 0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  valorLDR = analogRead(pinoLDR);
+  Serial.print("Luminosidade: ");
+  Serial.println(valorLDR);
+  
+  if (valorLDR < 300) {
+    Serial.println("Ambiente escuro");
+  } else {
+    Serial.println("Ambiente claro");
+  }
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>4. Sensor Ultrassônico HC-SR04</summary>
+                        <p>Mede distâncias através de ondas sonoras de alta frequência.</p>
+                        <div class="codigo-arduino">
+const int trigPin = 9;
+const int echoPin = 10;
+long duracao;
+int distancia;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  duracao = pulseIn(echoPin, HIGH);
+  distancia = duracao * 0.034 / 2;
+  
+  Serial.print("Distância: ");
+  Serial.print(distancia);
+  Serial.println(" cm");
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>5. Sensor de Movimento PIR HC-SR501</summary>
+                        <p>Detecta radiação infravermelha de corpos em movimento.</p>
+                        <div class="codigo-arduino">
+const int pinoPIR = 2;
+int estadoPIR = 0;
+
+void setup() {
+  pinMode(pinoPIR, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  estadoPIR = digitalRead(pinoPIR);
+  if (estadoPIR == HIGH) {
+    Serial.println("Movimento Detectado!");
+  } else {
+    Serial.println("Sem movimento.");
+  }
+  delay(500);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>6. Sensor de Gás MQ-2</summary>
+                        <p>Detecta fumaça e gases inflamáveis.</p>
+                        <div class="codigo-arduino">
+const int pinoAnalogicoMQ2 = A0;
+const int pinoDigitalMQ2 = 7;
+
+void setup() {
+  pinMode(pinoDigitalMQ2, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int leituraAnalogica = analogRead(pinoAnalogicoMQ2);
+  int leituraDigital = digitalRead(pinoDigitalMQ2);
+  
+  Serial.print("Nível de gás: ");
+  Serial.print(leituraAnalogica);
+  
+  if (leituraDigital == LOW) { // Geralmente LOW quando detecta limite
+    Serial.println(" - ALERTA: Gás detectado!");
+  } else {
+    Serial.println(" - Normal");
+  }
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>7. Sensor de Nível de Líquido (Boia Magnética)</summary>
+                        <p>Funciona como uma chave (switch) indicando se o líquido atingiu certo nível.</p>
+                        <div class="codigo-arduino">
+const int pinoBoia = 3;
+
+void setup() {
+  pinMode(pinoBoia, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int estadoBoia = digitalRead(pinoBoia);
+  if (estadoBoia == LOW) {
+    Serial.println("Nível ALTO atingido!");
+  } else {
+    Serial.println("Nível baixo");
+  }
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>8. Sensor de Corrente ACS712</summary>
+                        <p>Mede a corrente elétrica utilizando o efeito Hall.</p>
+                        <div class="codigo-arduino">
+const int pinoACS = A0;
+int sensibilidade = 185; // Para modelo 5A (185 mV/A)
+int offsetTensao = 2500; // Tensão em 0A (2.5V para 5V VCC)
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int leitura = analogRead(pinoACS);
+  float tensao = (leitura / 1024.0) * 5000; // mV
+  float corrente = (tensao - offsetTensao) / sensibilidade;
+  
+  Serial.print("Corrente: ");
+  Serial.print(corrente);
+  Serial.println(" A");
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>9. Módulo RFID MFRC522</summary>
+                        <p>Lê tags RFID para sistemas de controle de acesso.</p>
+                        <div class="codigo-arduino">
+#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+
+#define SS_PIN 10
+#define RST_PIN 9
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+
+void setup() {
+  Serial.begin(9600);
+  SPI.begin();
+  mfrc522.PCD_Init();
+  Serial.println("Aproxime o seu cartao do leitor...");
+}
+
+void loop() {
+  if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) {
+    return;
+  }
+  
+  Serial.print("UID da tag:");
+  for (byte i = 0; i < mfrc522.uid.size; i++) {
+    Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+    Serial.print(mfrc522.uid.uidByte[i], HEX);
+  }
+  Serial.println();
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+                <div class="arduino-section">
+                    <details>
+                        <summary>10. Célula de Carga com HX711</summary>
+                        <p>Utilizada para medição de peso (balanças).</p>
+                        <div class="codigo-arduino">
+#include "HX711.h"
+
+const int LOADCELL_DOUT_PIN = 3;
+const int LOADCELL_SCK_PIN = 2;
+HX711 scale;
+
+void setup() {
+  Serial.begin(9600);
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  
+  scale.set_scale(2280.f); // Fator de calibração
+  scale.tare(); // Zera a balança
+}
+
+void loop() {
+  Serial.print("Peso: ");
+  Serial.print(scale.get_units(), 1);
+  Serial.println(" kg");
+  delay(1000);
+}
+                        </div>
+                    </details>
+                </div>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Portal de Robótica Industrial e IoT. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
